@@ -2,6 +2,11 @@
 var DrunkDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   this.step();
+  var styleSettings = {
+    "border-radius": "20px",
+    "border": "20px solid #2554C7"
+  };
+  this.$node.css(styleSettings);
 };
 
 //Inherit from superclass
