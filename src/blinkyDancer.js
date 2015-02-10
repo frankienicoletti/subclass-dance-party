@@ -1,18 +1,16 @@
 // Blinky Dancer subclass
-var makeBlinkyDancer = function(top, left, timeBetweenSteps){
-  makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="blinkyDancer"></span>');
+var BlinkyDancer = function(top, left, timeBetweenSteps){
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.step();
 };
 
 //Inherit from superclass
-makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
-makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
+BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 //Updated step function to toggle the node (blink)
-makeBlinkyDancer.prototype.step = function() {
-  var stepping = this.step.bind(this);
-  setTimeout(stepping, this.timeBetweenSteps);
+BlinkyDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
   this.$node.toggle();
 };
 

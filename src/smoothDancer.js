@@ -1,18 +1,16 @@
 // Smooth Dancer subclass
-var makeSmoothDancer = function(top, left, timeBetweenSteps){
-  makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="SmoothDancer"></span>');
+var SmoothDancer = function(top, left, timeBetweenSteps){
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.step();
 };
 
 //Inherit from superclass
-makeSmoothDancer.prototype = Object.create(makeDancer.prototype);
-makeSmoothDancer.prototype.constructor = makeSmoothDancer;
+SmoothDancer.prototype = Object.create(Dancer.prototype);
+SmoothDancer.prototype.constructor = SmoothDancer;
 
 //Updated step function to toggle the node (blink)
-makeSmoothDancer.prototype.step = function() {
-  var stepping = this.step.bind(this);
-  setTimeout(stepping, this.timeBetweenSteps);
+SmoothDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
   this.$node.slideToggle();
 };
 
