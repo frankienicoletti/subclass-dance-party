@@ -1,9 +1,8 @@
 // Dancer superclass
 var makeDancer = function(top, left, timeBetweenSteps){
-
   this.$node = $('<span class="dancer"></span>');
   this.timeBetweenSteps = timeBetweenSteps;
-  this.setPosition();
+  this.setPosition(top, left);
 };
 
 makeDancer.prototype.constructor = makeDancer;
@@ -15,9 +14,9 @@ makeDancer.prototype.step = function(){
 };
 
 // Use css top and left properties to position our <span> tag
-makeDancer.prototype.setPosition = function(){
-  var top = this.top;
-  var left = this.left;
+makeDancer.prototype.setPosition = function(top, left){
+  //var top = this.top;
+  //var left = this.left;
 
   var styleSettings = {
     top: top,
