@@ -22,3 +22,12 @@ Dancer.prototype.setPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.lineUp = function() {
+  //var dancers = document.getElementsByClassName('.dancer');
+
+  //for (var i=0;i<dancers.length;i++) {
+  console.log("in prototype func");
+    this.$node.animate({left: "10px"}, 50);
+  //}
+};
