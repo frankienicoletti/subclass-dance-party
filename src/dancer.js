@@ -1,6 +1,7 @@
 // Dancer superclass
 var Dancer = function(top, left, timeBetweenSteps){
-
+  this.top = top;
+  this.left = left;
   this.$node = $('<span class="dancer"></span>');
   this._timeBetweenSteps = timeBetweenSteps;
   this.setPosition(top, left);
@@ -25,4 +26,8 @@ Dancer.prototype.setPosition = function(top, left){
 
 Dancer.prototype.lineUp = function() {
     this.$node.animate({left: "10px"}, 50);
+};
+
+Dancer.prototype.partners = function(partner) {
+  partner.setPosition(this.top, (this.left+10));
 };

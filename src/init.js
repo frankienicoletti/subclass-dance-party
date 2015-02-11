@@ -39,4 +39,23 @@ $(document).ready(function(){
     }
   });
 
+  $('body').on('click', '.dancer', function(event){
+    var orig1 = $(this).top;
+    var orig2 = $(this).left;
+    console.log("original", orig1, orig2);
+    var distance=0, thisDistance=0;
+    var closestNode;
+    for (var i=0;i<window.dancers.length;i++) {
+      var side1 = window.dancers[i].top;
+      var side2 = window.dancers[i].left;
+      console.log("in for loop", side1, side2);
+      thisDistance = Math.sqrt(((orig1-side1)*(orig1-side1))+((orig2-side2)*(orig2-side2)));
+      if (thisDistance > distance) {
+        distance = thisDistance;
+        closestNode = window.dancers[i];
+      }
+    }
+    $(this).partners(closestNode);
+  });
+
 });
