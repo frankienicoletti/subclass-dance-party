@@ -7,6 +7,9 @@ var NervousDancer = function(top, left, timeBetweenSteps){
     "border": "15px solid #ADD8E6"
   };
   this.$node.css(this.styleSettings);
+
+
+
 };
 
 //Inherit from superclass
@@ -16,8 +19,23 @@ NervousDancer.prototype.constructor = NervousDancer;
 //Updated step function to toggle the node (blink)
 NervousDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
-  this.$node.slideToggle(1000);
+  NervousDancer.prototype.disco.call(this);
+  this.$node.toggle();
+};
+
+NervousDancer.prototype.disco = function() {
   var thisNode = this.$node;
-  $(thisNode).on("mouseover", function() {thisNode.hide();});
+  var mouseoverProps = {
+    "background":"url(https://s3.amazonaws.com/uploads.hipchat.com/121019/1706993/iV2luMxvgZYLxpx/delete.png) no-repeat",
+    "background-size": "cover",
+    "border-radius": "0px",
+    "border": "0px",
+    "height": "80px",
+    "width": "80px"
+  };
+  $(thisNode).on("mouseover", function() {
+    thisNode.css(mouseoverProps);
+    thisNode.toggle();
+  });
 };
 

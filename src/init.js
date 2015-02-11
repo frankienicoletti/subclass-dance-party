@@ -34,8 +34,6 @@ $(document).ready(function(){
   );
 
   $(".lineUpButton").on("click", function(event){
-    //var dancers = document.getElementsByClassName('dancer');
-    console.log(dancers);
     for (var i=0;i<window.dancers.length;i++) {
       window.dancers[i].lineUp();
     }

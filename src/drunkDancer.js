@@ -16,6 +16,7 @@ DrunkDancer.prototype.constructor = DrunkDancer;
 //Updated step function to fade toggle the node
 DrunkDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
-  this.$node.fadeToggle();
+  this.$node.fadeToggle('fast','linear');
+
 };
 
